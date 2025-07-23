@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 
 // inport
@@ -7,13 +7,13 @@ import { getAll, get5First, getRedGoods } from './api/goods';
 
 export const App: React.FC = () => {
   const [goods, setGoods] = useState<Good[]>([]);
-  const [goodsClick, setGoodsClic] = useState(false);
+  // const [goodsClick, setGoodsClick] = useState(false);
 
-  useEffect(() => {
-    getAll();
-    get5First();
-    getRedGoods();
-  }, [goodsClick]);
+  // useEffect(() => {
+  //   getAll();
+  //   get5First();
+  //   getRedGoods();
+  // }, [goodsClick]);
 
   return (
     <div className="App">
@@ -24,7 +24,7 @@ export const App: React.FC = () => {
         data-cy="all-button"
         onClick={() => {
           getAll().then(setGoods);
-          setGoodsClic(true);
+          // setGoodsClick(true);
         }}
       >
         Load all goods
@@ -35,7 +35,7 @@ export const App: React.FC = () => {
         data-cy="first-five-button"
         onClick={() => {
           get5First().then(setGoods);
-          setGoodsClic(true);
+          // setGoodsClick(true);
         }}
       >
         Load 5 first goods
@@ -46,7 +46,7 @@ export const App: React.FC = () => {
         data-cy="red-button"
         onClick={() => {
           getRedGoods().then(setGoods);
-          setGoodsClic(true);
+          // setGoodsClick(true);
         }}
       >
         Load red goods
